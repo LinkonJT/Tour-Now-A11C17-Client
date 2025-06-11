@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../assets/TourNow-Logo.png'; 
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
   return (
@@ -27,15 +28,15 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-      <li><a>Home</a></li>
-      <li><a>All packages</a></li>
-      <li><a>About Us</a></li>
+      <li><NavLink to='/'>Home</NavLink></li>
+      <li><NavLink to='/all-packages'>All Packages</NavLink></li>
+      <li><NavLink to='/about'>About Us</NavLink></li>
       <li>
         <details>
           <summary>propic</summary>
           <ul className="p-2">
-            <li><a>Add Package</a></li>
-            <li><a>Manage My Packages</a></li>
+            <li><NavLink to='/add-package'>Add Package</NavLink></li>
+            <li><NavLink to='/manage-my-Packages'>Manage My Packages</NavLink></li>
           </ul>
         </details>
       </li>
@@ -43,8 +44,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">SignIn</a>
-    <a className="btn">Sign Out</a>
+    <NavLink to='/signin' className="btn">SignIn</NavLink>
+    <NavLink to='/signup' className="btn">Sign Out</NavLink>
   </div>
 </div>
   );

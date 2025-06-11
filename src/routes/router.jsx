@@ -9,6 +9,7 @@ import AddPackage from "../pages/AddPackage";
 import ManageMyPackages from "../pages/ManageMyPackages";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import NotFound404 from "../pages/NotFound404";
 
 export const router = createBrowserRouter([
   {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
         element: <AddPackage></AddPackage>
       },
       {
-        path: "/manage-all-Packages",
+        path: "/manage-my-Packages",
         element: <ManageMyPackages></ManageMyPackages>
       },
       {
@@ -40,9 +41,13 @@ export const router = createBrowserRouter([
         element: <SignIn></SignIn>
       },
       {
-        path: "/signUp",
+        path: "/signup",
         element: <SignUp></SignUp>
       }
     ]
-  }
+  },
+    {
+    path: '*',
+    element: <NotFound404></NotFound404>
+  },
 ]);
