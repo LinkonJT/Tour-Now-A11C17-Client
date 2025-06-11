@@ -31,6 +31,7 @@ const Navbar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/all-packages'>All Packages</NavLink></li>
       <li><NavLink to='/about'>About Us</NavLink></li>
+      <li><NavLink to='/my-bookings'>My Bookings</NavLink></li>
       <li>
         <details>
           <summary>propic</summary>

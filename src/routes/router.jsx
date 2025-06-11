@@ -10,6 +10,8 @@ import ManageMyPackages from "../pages/ManageMyPackages";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import NotFound404 from "../pages/NotFound404";
+import MyBookings from "../pages/MyBookings";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -30,11 +32,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/add-package",
-        element: <AddPackage></AddPackage>
+        element: <PrivateRoute>
+           <AddPackage></AddPackage>
+        </PrivateRoute>
       },
       {
         path: "/manage-my-Packages",
-        element: <ManageMyPackages></ManageMyPackages>
+        element: <PrivateRoute>
+          <ManageMyPackages></ManageMyPackages>
+        </PrivateRoute>
       },
       {
         path: "/signin",
@@ -43,6 +49,12 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>
+      },
+      {
+        path: "/my-bookings",
+        element: <PrivateRoute>
+          <MyBookings></MyBookings>
+        </PrivateRoute>
       }
     ]
   },
