@@ -14,7 +14,7 @@ const MainLayout = () => {
     return (
         <div data-theme='forest' className='flex flex-col min-h-screen'>
             <Navbar></Navbar>
-            <main className='flex-grow mx-auto'>
+            <main className='flex-grow'>
                <Outlet></Outlet>
             </main>
             <Footer></Footer>
