@@ -2,6 +2,7 @@ import React from "react";
 import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import logo from '../assets/TourNow-Logo.png'; // Adjust the path as necessary
+import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
@@ -29,7 +30,7 @@ const Footer = () => {
 
   <nav>
     <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
+      <NavLink to="/about">About Us</NavLink>
     <a className="link link-hover">Contact</a>
    
   </nav>

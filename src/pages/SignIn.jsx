@@ -16,6 +16,18 @@ const handleSignIn=(e)=>{
   const {email, password} = Object.fromEntries(formData.entries())
 
   
+/** password validation usdin RegExp */
+
+const isValidPassword =  /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password);
+if(!isValidPassword){
+    Swal.fire({
+        icon: "error",
+        title: "Password Invalid",
+        html:
+          "Password must contain at least:<br>- One uppercase letter<br>- One lowercase letter,<br>- Minimum 6 characters",
+      });
+      return;
+}
 
 //call the signIN function
 signInUser(email, password)
@@ -48,7 +60,7 @@ signInUser(email, password)
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "SignUp successful",
+          title: "SignIn successful",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -67,18 +79,18 @@ navigate('/')
 
   return (
     <div className="my-10">
-      {
+      {/* {
         loading && <Spinner></Spinner>
-      }
+      } */}
       <form onSubmit={handleSignIn}>
         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
         <h2 className="fieldset-legend text-xl mx-auto">Login Here!!</h2>
 
         <label className="label">Email</label>
-        <input type="email" className="input" placeholder="Email" />
+        <input type="email" name='email' className="input" placeholder="Email" />
 
         <label className="label">Password</label>
-        <input type="password" className="input" placeholder="Password" />
+        <input type="password" name='password' className="input" placeholder="Password" />
 
         <button className="btn btn-neutral mt-4">Login</button>
         <div className="space-y-3">

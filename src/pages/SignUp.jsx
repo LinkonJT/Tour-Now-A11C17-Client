@@ -18,6 +18,23 @@ const SignUp = () => {
       formData.entries()
     );
 
+/**Password validation */
+
+const upperCase = /[A-Z]/.test(password)
+const lowerCase = /[a-z]/.test(password)
+const passwordLength= password.length>=6 
+
+if (!upperCase || !lowerCase|| !passwordLength){
+  Swal.fire({
+      icon: "error",
+      title: "Weak Password",
+       html: "Password must contain at least:<br>- One uppercase letter<br>- One lowercase letter<br>- Minimum 6 characters",
+       
+    });
+    return;
+}
+
+
     /******signup and create user in firebase */
     //call createuser
 

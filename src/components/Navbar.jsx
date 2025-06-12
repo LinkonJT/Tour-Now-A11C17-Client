@@ -50,7 +50,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,26 +73,23 @@ const Navbar = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
             <li>
-              <a>Item 1</a>
+                <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
+                 
+            <NavLink to="/my-bookings" >My Bookings</NavLink>
+          
             </li>
             <li>
-              <a>Item 3</a>
+            <NavLink to="/all-packages">All Packages</NavLink>
             </li>
+             <li>
+            <NavLink to="/about">About Us</NavLink>
+          </li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">
-          <img className="w-10 rounded-full" src={logo} alt="" /> TourNow
+        <a className="btn btn-ghost text-sm md:text-xl">
+          <img className="w-5 md:w-10 rounded-full" src={logo} alt="" /> TourNow
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -111,34 +108,45 @@ const Navbar = () => {
       <div className="navbar-end">
 
         {
-          user? (<><div>
-            <NavLink to="/my-bookings">My Bookings</NavLink>
+          user? (<>
+          <div className="flex gap-4 items-center">
+            <div className="text-sm hidden lg:block">
+            <NavLink to="/my-bookings" >My Bookings</NavLink>
           </div>
-          <div>
-            <details>
-           <img
-                  className="w-6 user-avatar md:w-8 rounded-full border"
-                  src={user.photoURL || defaultProPic}
-                  alt=""
-                  title={user.displayName || "no name"}
-                  style={{ cursor: "pointer" }}
-                />
-              <ul className="p-2 menu menu-horizontal">
-                <li>
-                  <NavLink to="/add-package">Add Package</NavLink>
-                </li>
-                <li>
-                  <NavLink to="/manage-my-Packages">Manage My Packages</NavLink>
-                </li>
-              </ul>
-            </details>
-          </div>
-          <button onClick={handleSignOut} className="btn">Sign Out</button></>) :
-          (<> <NavLink to="/signin" className="btn">
+           {/* propic toggle */}
+          <div className="dropdown dropdown-end lg:dropdown-bottom">
+  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+   
+      <img
+        src={user.photoURL || defaultProPic}
+        alt="Profile"
+        title={user.displayName || "No Name"}
+        className="w-8 rounded-full border"
+      />
+    
+  </div>
+  <ul
+    tabIndex={0}
+    className="mt-3  p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+  >
+    <li>
+      <NavLink to="/add-package">Add Package</NavLink>
+    </li>
+    <li>
+      <NavLink to="/manage-my-packages">Manage My Packages</NavLink>
+    </li>
+  </ul>
+</div>
+{/* end: pp toggle */}
+
+  <NavLink onClick={handleSignOut} className="btn btn-sm md:btn-md">Sign Out</NavLink>
+  </div>
+  </>
+  ) :
+          (<> <NavLink to="/signin" className="btn btn-sm md:btn-md">
           SignIn
         </NavLink></>)
         }
-       
        
         
       </div>
