@@ -12,7 +12,7 @@ const MainLayout = () => {
         return <Spinner></Spinner>
     }
     return (
-        <div data-theme='abyss' className='flex flex-col min-h-screen'>
+        <div data-theme='forest' className='flex flex-col min-h-screen'>
             <Navbar></Navbar>
             <main className='flex-grow mx-auto'>
                <Outlet></Outlet>
