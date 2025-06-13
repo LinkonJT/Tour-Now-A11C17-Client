@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthContext';
 import Spinner from '../components/Spinner';
+import defaultProPic from "../assets/userphoto.png";
 import defaultTourImage from "../assets/tourImage.png";
+import { NavLink } from 'react-router';
 
 const AllPackages = () => {
     const {loading, user} = useContext(AuthContext)
@@ -26,20 +28,29 @@ useEffect(()=>{
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4'>
 {
     packages.map((pkg)=>(
-        <div className="hero bg-base-200">
-             <img
+<div className="card bg-base-100 w-96 shadow-sm">
+  <figure>
+    <img
       src={pkg.image || defaultTourImage}
-      className="max-w-sm rounded-lg shadow-2xl"
-    />
-  <div className="hero-content flex-col lg:flex-row">
-   
-    <div>
-      <h1 className="text-5xl font-bold">Box Office News!</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
-      <button className="btn btn-primary">View Details</button>
+      alt={pkg.tour_name} />
+  </figure>
+  <div className="card-body">
+    <h2 className="card-title">{pkg.tour_name} </h2>
+    <p>Departure Date: {pkg.departure_date} </p>
+    <p>Duration: {pkg.duration} </p>
+    <p>Price: {pkg.price} </p>
+
+    <h2 className='text-md font-bold text-center'>Tour Guide</h2>
+    <p>Name: {user?.displayName || ''} </p>
+     <img
+          src={user.photoURL || defaultProPic}
+          alt="Profile"
+          title={user.displayName || "No Name"}
+          className="w-24 h-24 rounded-full border"
+        />
+
+    <div className="card-actions justify-end">
+      <NavLink to={user? '/pkg-details': '/signin'} className="btn btn-primary">View Details</NavLink>
     </div>
   </div>
 </div>

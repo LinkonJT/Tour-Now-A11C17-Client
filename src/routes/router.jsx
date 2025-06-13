@@ -11,6 +11,7 @@ import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
 import NotFound404 from "../pages/NotFound404";
 import MyBookings from "../pages/MyBookings";
+import PackageDetails from "../pages/PackageDetails";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
         element: <PrivateRoute>
           <MyBookings></MyBookings>
         </PrivateRoute>
+      },
+      {
+        path: "/pkg-details",
+        element: <PackageDetails></PackageDetails>
       }
     ]
   },
