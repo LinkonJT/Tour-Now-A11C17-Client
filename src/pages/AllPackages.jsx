@@ -28,9 +28,10 @@ useEffect(()=>{
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4'>
 {
     packages.map((pkg)=>(
-<div className="card bg-base-100 w-96 shadow-sm">
+<div className="card bg-base-100 w-11/12 mx-auto shadow-xl shadow-amber-100">
   <figure>
     <img
+    className='w-80 h-50 md:w-100 md:h-65 rounded-2xl pt-2'
       src={pkg.image || defaultTourImage}
       alt={pkg.tour_name} />
   </figure>
@@ -41,16 +42,16 @@ useEffect(()=>{
     <p>Price: {pkg.price} </p>
 
     <h2 className='text-md font-bold text-center'>Tour Guide</h2>
-    <p>Name: {user?.displayName || ''} </p>
+    <p>Name: {pkg.guide_name || 'No Name'} </p>
      <img
-          src={user.photoURL || defaultProPic}
+          src={pkg.guide_photo || defaultProPic}
           alt="Profile"
-          title={user.displayName || "No Name"}
-          className="w-24 h-24 rounded-full border"
+          title={pkg.guide_name || "No Name"}
+          className="w-20 h-20 md:w-24 md:h-24 rounded-full border"
         />
 
     <div className="card-actions justify-end">
-      <NavLink to={user? '/pkg-details': '/signin'} className="btn btn-primary">View Details</NavLink>
+      <NavLink to={user? `/pkg-details/${pkg._id}`: '/signin'} className="btn btn-primary">View Details</NavLink>
     </div>
   </div>
 </div>

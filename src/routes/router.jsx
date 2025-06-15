@@ -58,8 +58,13 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: "/pkg-details",
-        element: <PackageDetails></PackageDetails>
+        path: "/pkg-details/:id",
+        element: 
+        <PrivateRoute>
+          <PackageDetails></PackageDetails>
+        </PrivateRoute>,
+        loader: ({params})=> fetch (`http://localhost:3000/pkg-details/${params.id}`)
+
       }
     ]
   },

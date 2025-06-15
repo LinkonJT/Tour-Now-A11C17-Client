@@ -3,7 +3,7 @@ import defaultProPic from "../assets/userphoto.png";
 import { toast } from 'react-toastify';
 
 const PackageForm = ({user} ) => {
-
+console.log("Submitting package for user:", user);
   const handleAddPackage = (e)=>{
 
 e.preventDefault()
@@ -12,7 +12,12 @@ const formData = new FormData(form)
 const result = Object.fromEntries(formData.entries())
  console.log("Form Data Submitted:", result);
 
- /**post to mongoDB */
+ /**adding guide info to the result object** */
+ result.guide_name =  user?.displayName || 'Anonymous';
+ result.guide_email= user?.email || 'Not Provided';
+ result.guide_photo = user?.photoURL || '';
+
+ /*****post to mongoDB ******/
  fetch('http://localhost:3000/all-packages',{
     method: 'POST',
     headers: {
@@ -85,7 +90,7 @@ const result = Object.fromEntries(formData.entries())
 
   <div>
     <label className="block mb-1">Guide Name</label>
-    <input type="text" name="guide_name" value={user?.displayName || ''} readOnly className="input input-bordered w-full" />
+    <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full" />
   </div>
   <div>
     <label className="block mb-1">Guide Email</label>
