@@ -2,10 +2,48 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthContext";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
+import Swal from "sweetalert2";
 
 const ManageMyPackages = () => {
   const { user, loading } = useContext(AuthContext);
   const [myPackages, setMyPackages] = useState([]);
+
+const handleDelete = (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        // text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Delete!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`http://localhost:3000/manage-my-packages/${id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success("Package deleted successfully");
+                        const remainingPackages = myPackages.filter((pkg) => pkg._id !== id);
+                        setMyPackages(remainingPackages);
+                    }
+                    console.log("remaining Data after Delete:", data);
+                });
+        }
+    }).catch((error) => {
+            console.error("Delete error:", error.message);
+            Swal.fire({
+              icon: "error",
+              title: "Remove failed",
+              text: error.message,
+            });
+          });
+}
 
   useEffect(() => {
     if (user?.email) {
@@ -59,8 +97,8 @@ const ManageMyPackages = () => {
                 <td>{pkg.departure_date}</td>
                 <td className="hidden md:block whitespace-normal break-words text-xs md:text-sm">{pkg.departure_location}</td>
                 <td>
-                  <button className="btn btn-ghost btn-xs">Edit</button>
-                  <button className="btn btn-ghost btn-xs">Delete</button>
+                  <button  className="btn btn-ghost btn-xs">Edit</button>
+                  <button onClick={ ()=>handleDelete(pkg._id)} className="btn btn-ghost btn-xs">Delete</button>
                 </td>
               </tr>
             ))}
