@@ -13,6 +13,7 @@ import NotFound404 from "../pages/NotFound404";
 import MyBookings from "../pages/MyBookings";
 import PackageDetails from "../pages/PackageDetails";
 import PrivateRoute from "./PrivateRoute";
+import UpdatePackage from "../components/UpdatePackage";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,13 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
+        path: "/update-package/:id",
+        loader:({params})=> fetch(`http://localhost:3000/update-package/${params.id}`),
+        element: <PrivateRoute>
+          <UpdatePackage></UpdatePackage>
+        </PrivateRoute>
+      },
+      {
         path: "/signin",
         element: <SignIn></SignIn>
       },
@@ -69,7 +77,7 @@ export const router = createBrowserRouter([
         <PrivateRoute>
           <PackageDetails></PackageDetails>
         </PrivateRoute>,
-        loader: ({params})=> fetch (`http://localhost:3000/pkg-details/${params.id}`)
+        loader: ({params})=> fetch(`http://localhost:3000/pkg-details/${params.id}`)
 
       }
     ]

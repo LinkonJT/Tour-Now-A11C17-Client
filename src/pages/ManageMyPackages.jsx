@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthContext";
 import { toast } from "react-toastify";
 import Spinner from "../components/Spinner";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const ManageMyPackages = () => {
   const { user, loading } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const handleDelete = (id) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.deletedCount) {
-                        toast.success("Package deleted successfully");
+                        toast.success("Package removed from UI and MongoDB");
                         const remainingPackages = myPackages.filter((pkg) => pkg._id !== id);
                         setMyPackages(remainingPackages);
                     }
@@ -97,7 +98,7 @@ const handleDelete = (id) => {
                 <td>{pkg.departure_date}</td>
                 <td className="hidden md:block whitespace-normal break-words text-xs md:text-sm">{pkg.departure_location}</td>
                 <td>
-                  <button  className="btn btn-ghost btn-xs">Edit</button>
+                  <Link to={`/update-package/${pkg._id}`}  className="btn btn-ghost btn-xs">Edit</Link>
                   <button onClick={ ()=>handleDelete(pkg._id)} className="btn btn-ghost btn-xs">Delete</button>
                 </td>
               </tr>
