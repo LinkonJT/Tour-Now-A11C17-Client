@@ -38,7 +38,13 @@ export const router = createBrowserRouter([
         </PrivateRoute>
       },
       {
-        path: "/manage-my-Packages",
+        path: "/manage-my-packages",
+        element: <PrivateRoute>
+          <ManageMyPackages></ManageMyPackages>
+        </PrivateRoute>
+      },
+      {
+        path: "/manage-my-packages/:email",
         element: <PrivateRoute>
           <ManageMyPackages></ManageMyPackages>
         </PrivateRoute>

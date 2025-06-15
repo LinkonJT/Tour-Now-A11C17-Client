@@ -14,6 +14,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleSignOut = (e) => {
+    e.preventDefault()
     Swal.fire({
       title: "Are you sure?",
       // text: "You won't be able to revert this!",
@@ -133,7 +134,7 @@ const Navbar = () => {
       <NavLink to="/add-package">Add Package</NavLink>
     </li>
     <li>
-      <NavLink to="/manage-my-packages">Manage My Packages</NavLink>
+      <NavLink to={`/manage-my-packages/${user.email}`}>Manage My Packages</NavLink>
     </li>
   </ul>
 </div>
