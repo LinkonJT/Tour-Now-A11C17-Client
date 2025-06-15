@@ -37,7 +37,7 @@ const result = Object.fromEntries(formData.entries())
   }
     
     return (
-<form onSubmit={handleAddPackage} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+<form onSubmit={handleAddPackage} className="grid grid-cols-1 md:grid-cols-2 gap-4 shadow-md p-4">
   <div>
     <label className="block mb-1">Tour Name</label>
     <input type="text" name="tour_name" placeholder="Tour Name" className="input input-bordered w-full" required />

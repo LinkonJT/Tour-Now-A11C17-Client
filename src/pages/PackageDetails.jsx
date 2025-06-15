@@ -2,13 +2,14 @@ import React from 'react';
 import { NavLink, useLoaderData } from 'react-router';
 import defaultProPic from "../assets/userphoto.png";
 import defaultTourImage from "../assets/tourImage.png";
+import Modal from '../components/Modal';
 
 const PackageDetails = () => {
 
     const details = useLoaderData()
 console.log('package details', details)
 
-const {tour_name, image, duration, departure_location, destination, price, departure_date, contact_no, package_details, guide_email, guide_name, guide_photo} = details
+const {_id, tour_name, image, duration, departure_location, destination, price, departure_date, contact_no, package_details, guide_email, guide_name, guide_photo} = details
 
     return (
       <div className="card bg-base-100 w-11/12 md:w-200 lg:w-250 mx-auto shadow-xl shadow-amber-100 my-4">
@@ -41,7 +42,8 @@ const {tour_name, image, duration, departure_location, destination, price, depar
               />
       
           <div className="card-actions justify-end">
-            <NavLink className="btn btn-primary">Book Now</NavLink>
+            <NavLink to={`/booking-form/${_id}`} className="btn btn-primary">Book Now</NavLink>
+{/* <Modal details={details}></Modal> */}
           </div>
         </div>
       </div>

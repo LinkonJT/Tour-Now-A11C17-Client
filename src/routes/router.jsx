@@ -14,6 +14,7 @@ import MyBookings from "../pages/MyBookings";
 import PackageDetails from "../pages/PackageDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdatePackage from "../components/UpdatePackage";
+import BookingForm from "../components/BookingForm";
 
 export const router = createBrowserRouter([
   {
@@ -79,7 +80,14 @@ export const router = createBrowserRouter([
         </PrivateRoute>,
         loader: ({params})=> fetch(`http://localhost:3000/pkg-details/${params.id}`)
 
-      }
+      },
+        {
+        path: "/booking-form/:id",
+        element: <PrivateRoute>
+          <BookingForm></BookingForm>
+        </PrivateRoute>,
+        loader: ({params})=> fetch(`http://localhost:3000/booking-form/${params.id}`)
+      },
     ]
   },
     {
