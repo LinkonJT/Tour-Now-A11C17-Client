@@ -83,10 +83,12 @@ export const router = createBrowserRouter([
       },
         {
         path: "/booking-form/:id",
+        // loader: ({params})=> fetch(`http://localhost:3000/booking-form/${params.id}`)
+          loader: ({ params }) => fetch(`http://localhost:3000/tours/${params.id}`),
         element: <PrivateRoute>
           <BookingForm></BookingForm>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:3000/booking-form/${params.id}`)
+        
       },
     ]
   },

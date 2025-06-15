@@ -4,18 +4,22 @@ import { toast } from 'react-toastify';
 
 const PackageForm = ({user} ) => {
 console.log("Submitting package for user:", user);
-  const handleAddPackage = (e)=>{
+
+
+const handleAddPackage = (e)=>{
 
 e.preventDefault()
 const form = e.target;
 const formData = new FormData(form)
 const result = Object.fromEntries(formData.entries())
- console.log("Form Data Submitted:", result);
+ 
 
  /**adding guide info to the result object** */
  result.guide_name =  user?.displayName || 'Anonymous';
  result.guide_email= user?.email || 'Not Provided';
  result.guide_photo = user?.photoURL || '';
+
+ console.log("Form Data Submitted:", result);
 
  /*****post to mongoDB ******/
  fetch('http://localhost:3000/all-packages',{
