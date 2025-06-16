@@ -15,7 +15,12 @@ const [isLoading, setIsLoading] = useState(true)
 
 useEffect(()=>{
     if(user?.email){
-        fetch(`http://localhost:3000/bookings?email=${user.email}`)
+        fetch(`http://localhost:3000/bookings?email=${user.email}`, {
+           headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${user.accessToken}`,
+  },
+        })
         .then((res)=>res.json())
         .then((data)=>{
             setBookings(data)
@@ -33,7 +38,8 @@ const handleConfirm = (id)=>{
     fetch (`http://localhost:3000/bookings/${id}`,{
         method: "PATCH",
         headers: {
-            'Content-type' : 'application/json'
+            'Content-type' : 'application/json',
+            "Authorization": `Bearer ${user.accessToken}`,
         },
         body: JSON.stringify({status: "completed"})
     })

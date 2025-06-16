@@ -9,6 +9,8 @@ const ManageMyPackages = () => {
   const { user, loading } = useContext(AuthContext);
   const [myPackages, setMyPackages] = useState([]);
 
+  console.log('token from firebase', user.accessToken)
+
 const handleDelete = (id) => {
     Swal.fire({
         title: "Are you sure?",
@@ -24,6 +26,7 @@ const handleDelete = (id) => {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
+                     "Authorization": `Bearer ${user.accessToken}`,
                 }
             })
                 .then(res => res.json())
@@ -47,8 +50,13 @@ const handleDelete = (id) => {
 }
 
   useEffect(() => {
-    if (user?.email) {
-      fetch(`http://localhost:3000/manage-my-packages/${user.email}`)
+    if (user?.email && user?.accessToken) {
+      fetch(`http://localhost:3000/manage-my-packages/${user.email}`,{
+    headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${user.accessToken}`,
+  },
+      })
         .then((res) => res.json())
         .then((data) => {
           setMyPackages(data);
