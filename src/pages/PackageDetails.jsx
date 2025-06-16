@@ -9,7 +9,7 @@ const PackageDetails = () => {
     const details = useLoaderData()
 console.log('package details', details)
 
-const {_id, tour_name, image, duration, departure_location, destination, price, departure_date, contact_no, package_details, guide_email, guide_name, guide_photo} = details
+const {_id, tour_name, image, duration, departure_location, destination, price, departure_date, contact_no, package_details, guide_email, guide_name, guide_photo, booking_count} = details
 
     return (
       <div className="card bg-base-100 w-11/12 md:w-200 lg:w-250 mx-auto shadow-xl shadow-amber-100 my-4">
@@ -41,10 +41,10 @@ const {_id, tour_name, image, duration, departure_location, destination, price, 
                 className="w-20 h-20 md:w-24 md:h-24 rounded-full border"
               />
       
-          <div className="card-actions justify-end">
-            
+          <div className="card-actions justify-between items-center border p-2 rounded-3xl border-green-400">
+            <h2 className='border rounded-full bg-green-400 text-black p-2'> <strong>BookCount:</strong> <span className='font-bold'>{booking_count || 0}</span>   </h2>
             <NavLink to={`/booking-form/${_id}`} className="btn btn-primary">Book Now</NavLink>
-{/* <Modal details={details}></Modal> */}
+
           </div>
         </div>
       </div>

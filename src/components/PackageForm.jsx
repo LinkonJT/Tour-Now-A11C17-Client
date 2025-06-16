@@ -18,6 +18,7 @@ const result = Object.fromEntries(formData.entries())
  result.guide_name =  user?.displayName || 'Anonymous';
  result.guide_email= user?.email || 'Not Provided';
  result.guide_photo = user?.photoURL || '';
+ result.booking_count= 0;
 
  console.log("Form Data Submitted:", result);
 

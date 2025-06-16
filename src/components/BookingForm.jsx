@@ -24,6 +24,7 @@ const BookingForm = () => {
 // result.buyer_email = user?.email;
 
         const result = {
+          packageId: book._id,
   tour_name: book?.tour_name,
   price: book?.price,
   buyer_name: user?.displayName,
@@ -33,7 +34,8 @@ const BookingForm = () => {
   booking_date: Date.now(),
   status: "pending",
 
-    guide_name: book?.guide_name,
+  
+  guide_name: book?.guide_name,
   guide_contact: book?.contact_no,
   departure_date: book?.departure_date,
   departure_location: book?.departure_location,
