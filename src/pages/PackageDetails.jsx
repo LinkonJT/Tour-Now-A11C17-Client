@@ -42,6 +42,7 @@ const {_id, tour_name, image, duration, departure_location, destination, price, 
               />
       
           <div className="card-actions justify-end">
+            
             <NavLink to={`/booking-form/${_id}`} className="btn btn-primary">Book Now</NavLink>
 {/* <Modal details={details}></Modal> */}
           </div>

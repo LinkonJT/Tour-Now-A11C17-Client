@@ -15,6 +15,13 @@ const BookingForm = () => {
         // const formData = new FormData(form)
         // const result = Object.fromEntries(formData.entries())
         // console.log("BookingForm Data", result);
+        // manually add the rest
+// result.booking_date = Date.now();
+// result.status = "pending";
+// result.tour_name = book?.tour_name;
+// result.price = book?.price;
+// result.buyer_name = user?.displayName;
+// result.buyer_email = user?.email;
 
         const result = {
   tour_name: book?.tour_name,
@@ -24,7 +31,14 @@ const BookingForm = () => {
   special_note: form.special_note.value,
 //   booking_date: new Date().toISOString(),
   booking_date: Date.now(),
-  status: "pending"
+  status: "pending",
+
+    guide_name: book?.guide_name,
+  guide_contact: book?.contact_no,
+  departure_date: book?.departure_date,
+  departure_location: book?.departure_location,
+  destination: book?.destination,
+  image: book?.image
 };
 
 
