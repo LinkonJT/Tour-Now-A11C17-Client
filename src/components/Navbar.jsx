@@ -5,6 +5,7 @@ import AuthProvider from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthContext";
 import defaultProPic from "../assets/userphoto.png";
+import ThemeToggle from "./ThemeToggle";
 
 
 
@@ -51,7 +52,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-base-100 shadow-sm w-11/12 mx-auto">
+    <div className="navbar bg-base-100  w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -93,6 +94,7 @@ const Navbar = () => {
           <img className="w-5 md:w-10 rounded-full" src={logo} alt="" /> TourNow
         </a>
       </div>
+      <ThemeToggle></ThemeToggle>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
