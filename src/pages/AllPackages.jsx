@@ -50,9 +50,7 @@ const AllPackages = () => {
   };
 
 
-    if(loading || isLoading){
-        return <Spinner></Spinner>
-    }
+if (loading || isLoading) return <Spinner></Spinner>
 
 
     return (
@@ -71,7 +69,9 @@ const AllPackages = () => {
 
     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4'>
 {
-    packages.length > 0 ? packages.map((pkg)=>(
+   isLoading ? (
+    <Spinner />
+  ) : packages.length > 0 ? packages.map((pkg)=>(
 <div className="card bg-base-100 w-11/12 mx-auto shadow-md shadow-amber-100">
   <figure>
     <img
