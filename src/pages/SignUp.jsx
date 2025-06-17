@@ -88,12 +88,13 @@ navigate('/')
       });
   };
 
+ {loading && <Spinner></Spinner>}
   return (
-    <div className="my-10 mx-auto">
-      {loading && <Spinner></Spinner>}
+    <div className="my-10 mx-auto w-11/12">
+     
       <form onSubmit={handleSignUp}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
-          <h2 className="text-xl">SignUp Here!!!</h2>
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box mx-auto w-xs border p-4">
+          <h2 className="text-xl text-center">SignUp Here!!!</h2>
           {/* name */}
           <label className="label">Name</label>
           <input type="text" className="input" name="name" placeholder="name" />

@@ -83,7 +83,7 @@ navigate('/')
         loading && <Spinner></Spinner>
       } */}
       <form onSubmit={handleSignIn}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box mx-auto w-xs border p-4">
         <h2 className="fieldset-legend text-xl mx-auto">Login Here!!</h2>
 
         <label className="label">Email</label>
