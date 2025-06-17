@@ -8,6 +8,7 @@ import { Link } from "react-router";
 const ManageMyPackages = () => {
   const { user, loading } = useContext(AuthContext);
   const [myPackages, setMyPackages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   console.log('token from firebase', user.accessToken)
 
@@ -35,6 +36,7 @@ const handleDelete = (id) => {
                         toast.success("Package removed from UI and MongoDB");
                         const remainingPackages = myPackages.filter((pkg) => pkg._id !== id);
                         setMyPackages(remainingPackages);
+                        setIsLoading(false)
                     }
                     console.log("remaining Data after Delete:", data);
                 });
@@ -60,6 +62,7 @@ const handleDelete = (id) => {
         .then((res) => res.json())
         .then((data) => {
           setMyPackages(data);
+           setIsLoading(false);
           console.log("My packages fetched:", data);
         })
         .catch((error) => {
@@ -68,7 +71,7 @@ const handleDelete = (id) => {
     }
   }, [user]);
 
-  if (loading) {
+  if (loading || isLoading) {
     return <Spinner></Spinner>
   }
 
