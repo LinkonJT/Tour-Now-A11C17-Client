@@ -61,8 +61,8 @@ const handleConfirm = (id)=>{
  if (loading || isLoading) return <Spinner></Spinner>
 
     return (
-  <div >
-    {/* <h1 className='text-center font-bold text-2xl my-4'>Confirm Your Bookings!!</h1> */}
+  <div className='my-5'>
+    <h1 className='text-center font-bold text-lg md:text-2xl my-4'>Confirm My Bookings!!</h1>
      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-4 '>
     
 {
@@ -71,7 +71,7 @@ const handleConfirm = (id)=>{
     ) : (
       bookings.map((booking) => (
     
-        <div key={booking._id} className="card bg-base-100 mt-2 image-full w-90 md:w-96 mx-auto shadow-md shadow-amber-100">
+        <div key={booking._id} className="card bg-base-100 mt-2 image-full w-90 md:w-96 mx-auto shadow-md shadow-amber-200">
             
           <figure>
             <img

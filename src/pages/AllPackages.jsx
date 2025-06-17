@@ -6,18 +6,47 @@ import defaultTourImage from "../assets/tourImage.png";
 import { NavLink } from 'react-router';
 
 const AllPackages = () => {
-    const {loading, user} = useContext(AuthContext)
+    const {loading, user} = useContext(AuthContext);
+    const [packages, setPackages] = useState([]);
+     const [searchText, setSearchText] = useState('');
 
-    const [packages, setPackages] = useState([])
 
-useEffect(()=>{
-    fetch('http://localhost:3000/all-packages')
-     .then(res=>res.json())
-     .then ((data)=>{
-        setPackages(data)
-        console.log("Data fetched from all-packages server", data);
-     })
-},[])
+       const fetchPackages = (search = '') => {
+    fetch(`http://localhost:3000/all-packages?search=${search}`)
+      .then(res => res.json())
+      .then(data => {
+        setPackages(data);
+        console.log("Fetched Packages:", data);
+      });
+  };
+
+// useEffect(()=>{
+//     fetch('http://localhost:3000/all-packages')
+//      .then(res=>res.json())
+//      .then ((data)=>{
+//         setPackages(data)
+//         console.log("Data fetched from all-packages server", data);
+//      })
+// },[])
+
+
+
+  useEffect(() => {
+    fetchPackages();
+  }, []);
+
+  //useEffect to auto-fetch on clear
+  useEffect(() => {
+    if (searchText === '') {
+      fetchPackages('');
+    }
+  }, [searchText]);
+
+    const handleSearch = (e) => {
+    e.preventDefault();
+    fetchPackages(searchText);
+  };
+
 
     if(loading){
         return <Spinner></Spinner>
@@ -25,9 +54,22 @@ useEffect(()=>{
 
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4'>
+
+      <div className='w-11/12 mx-auto my-4'>
+ <form onSubmit={handleSearch} className="mb-6 flex gap-2 justify-center">
+        <input
+          type="text"
+          placeholder="Search tour name or destination..."
+          className="input input-bordered w-full max-w-xs"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
+        <button className="btn btn-primary" type="submit">Search</button>
+      </form>
+
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4'>
 {
-    packages.map((pkg)=>(
+    packages.length > 0 ? packages.map((pkg)=>(
 <div className="card bg-base-100 w-11/12 mx-auto shadow-md shadow-amber-100">
   <figure>
     <img
@@ -55,12 +97,18 @@ useEffect(()=>{
     </div>
   </div>
 </div>
-    ))
+    )) : (
+            <p className='text-center text-gray-500 col-span-3'>No packages found.</p>
+          )
 }
 
            
         </div>
-    );
+ 
+
+      </div>
+         );
+    
 };
 
 export default AllPackages;
