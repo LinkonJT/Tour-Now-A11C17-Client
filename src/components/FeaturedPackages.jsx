@@ -10,7 +10,7 @@ const FeaturedPackages = () => {
   const { user, loading } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:3000/all-packages")
+    fetch("https://tour-now-server.vercel.app/all-packages")
       .then((res) => res.json())
       .then((data) => {
         // Show only first 6

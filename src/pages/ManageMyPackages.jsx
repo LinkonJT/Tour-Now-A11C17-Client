@@ -22,7 +22,7 @@ const handleDelete = (id) => {
         confirmButtonText: "Yes, Delete!",
     }).then((result) => {
         if (result.isConfirmed) {
-            fetch(`http://localhost:3000/manage-my-packages/${id}`, {
+            fetch(`https://tour-now-server.vercel.app/manage-my-packages/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
@@ -51,7 +51,7 @@ const handleDelete = (id) => {
 
   useEffect(() => {
     if (user?.email && user?.accessToken) {
-      fetch(`http://localhost:3000/manage-my-packages/${user.email}`,{
+      fetch(`https://tour-now-server.vercel.app/manage-my-packages/${user.email}`,{
     headers: {
     "Content-Type": "application/json",
     "Authorization": `Bearer ${user.accessToken}`,

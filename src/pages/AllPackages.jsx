@@ -9,19 +9,21 @@ const AllPackages = () => {
     const {loading, user} = useContext(AuthContext);
     const [packages, setPackages] = useState([]);
      const [searchText, setSearchText] = useState('');
+     const [isLoading, setIsLoading] = useState(true)
 
 
        const fetchPackages = (search = '') => {
-    fetch(`http://localhost:3000/all-packages?search=${search}`)
+    fetch(`https://tour-now-server.vercel.app/all-packages?search=${search}`)
       .then(res => res.json())
       .then(data => {
         setPackages(data);
+        setIsLoading(false)
         console.log("Fetched Packages:", data);
       });
   };
 
 // useEffect(()=>{
-//     fetch('http://localhost:3000/all-packages')
+//     fetch('https://tour-now-server.vercel.app/all-packages')
 //      .then(res=>res.json())
 //      .then ((data)=>{
 //         setPackages(data)
@@ -48,7 +50,7 @@ const AllPackages = () => {
   };
 
 
-    if(loading){
+    if(loading || isLoading){
         return <Spinner></Spinner>
     }
 

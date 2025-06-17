@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update-package/:id",
-        loader:({params})=> fetch(`http://localhost:3000/update-package/${params.id}`),
+        loader:({params})=> fetch(`https://tour-now-server.vercel.app/update-package/${params.id}`),
         element: <PrivateRoute>
           <UpdatePackage></UpdatePackage>
         </PrivateRoute>
@@ -78,13 +78,13 @@ export const router = createBrowserRouter([
         <PrivateRoute>
           <PackageDetails></PackageDetails>
         </PrivateRoute>,
-        loader: ({params})=> fetch(`http://localhost:3000/pkg-details/${params.id}`)
+        loader: ({params})=> fetch(`https://tour-now-server.vercel.app/pkg-details/${params.id}`)
 
       },
         {
         path: "/booking-form/:id",
-        // loader: ({params})=> fetch(`http://localhost:3000/booking-form/${params.id}`)
-          loader: ({ params }) => fetch(`http://localhost:3000/tours/${params.id}`),
+        // loader: ({params})=> fetch(`https://tour-now-server.vercel.app/booking-form/${params.id}`)
+          loader: ({ params }) => fetch(`https://tour-now-server.vercel.app/tours/${params.id}`),
         element: <PrivateRoute>
           <BookingForm></BookingForm>
         </PrivateRoute>,

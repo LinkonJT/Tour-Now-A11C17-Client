@@ -23,7 +23,7 @@ const result = Object.fromEntries(formData.entries())
  console.log("Form Data Submitted:", result);
 
  /*****post to mongoDB ******/
- fetch('http://localhost:3000/all-packages',{
+ fetch('https://tour-now-server.vercel.app/all-packages',{
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

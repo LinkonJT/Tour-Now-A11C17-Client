@@ -45,7 +45,7 @@ const BookingForm = () => {
 
 
 /*****post to MongoDB */
-        fetch('http://localhost:3000/bookings',{
+        fetch('https://tour-now-server.vercel.app/bookings',{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
