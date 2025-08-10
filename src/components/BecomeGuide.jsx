@@ -11,7 +11,7 @@ const BecomeGuide = () => {
   <div className="flex flex-col md:flex-row items-center gap-6">
     
     <div>
-      <h3 className="text-2xl font-bold mb-2">Become a Local Guide</h3>
+      <h3 className="text-xl md:text-2xl font-bold mb-2">Become a Local Guide</h3>
       <p className="text-yellow-600 leading-relaxed">
         Are you a local expert or passionate about your city? Join us as a guide, create your own packages, and earn while sharing your knowledge with travelers.
       </p>

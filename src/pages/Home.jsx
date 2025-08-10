@@ -5,6 +5,7 @@ import BecomeGuide from "../components/BecomeGuide";
 import FAQ from "../components/FAQ";
 import Newsletter from "../components/Newsletter";
 import MostPopularPackages from "../components/MostPopularPackages";
+import ClientExperienceCards from "../components/ClientExperinceCards";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <MostPopularPackages></MostPopularPackages>
 
       <BecomeGuide></BecomeGuide>
+      <ClientExperienceCards></ClientExperienceCards>
       <FAQ></FAQ>
 
       <Newsletter></Newsletter>

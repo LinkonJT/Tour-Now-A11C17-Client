@@ -140,6 +140,9 @@ const Navbar = () => {
     <li>
       <NavLink to={`/manage-my-packages/${user.email}`}>Manage My Packages</NavLink>
     </li>
+    <li>
+  <NavLink to="/client-experience">Client Experience</NavLink>
+</li>
   </ul>
 </div>
 {/* end: pp toggle */}

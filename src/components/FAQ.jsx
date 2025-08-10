@@ -3,7 +3,7 @@ import React from 'react';
 const FAQ = () => {
     return (
         <div className='my-5 w-11/12 mx-auto bg-base-300 rounded-2xl p-4'>
-            <h3 className="text-2xl font-bold mb-2 text-center">Frequently Asked Questions</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-2 text-center">Frequently Asked Questions</h3>
             <div className="collapse bg-base-100 border border-base-300">
   <input type="radio" name="faq-accordion" defaultChecked />
   <div className="collapse-title font-semibold">How do I book a tour package on TourNow?</div>

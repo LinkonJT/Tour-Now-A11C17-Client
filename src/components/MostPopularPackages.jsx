@@ -24,10 +24,10 @@ const MostPopularPackages = () => {
 
   return (
     <div className="my-6 w-11/12 mx-auto">
-      <h2 className="text-center text-2xl font-semibold mb-4">Top-3 Popular Packages</h2>
+      <h2 className="text-center text-xl md:text-2xl font-bold mb-4">Top-3 Popular Packages</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {packages.map((pkg) => (
-          <div key={pkg._id} className="card bg-base-100 shadow-md p-4 rounded-lg">
+          <div key={pkg._id} className="card bg-base-300 shadow-md shadow-sky-200 p-4 rounded-lg">
             <figure>
               <img
                 src={pkg.image || defaultTourImage}
@@ -41,7 +41,7 @@ const MostPopularPackages = () => {
               <p className="mt-1 font-semibold">Price: {pkg.price}</p>
               <NavLink
                 to={`/pkg-details/${pkg._id}`}
-                className="btn btn-primary mt-3 block text-center"
+                className="btn btn-primary mt-3 text-center"
               >
                 View Details
               </NavLink>

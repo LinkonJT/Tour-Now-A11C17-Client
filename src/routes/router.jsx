@@ -15,6 +15,7 @@ import PackageDetails from "../pages/PackageDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdatePackage from "../components/UpdatePackage";
 import BookingForm from "../components/BookingForm";
+import ClientExperience from "../components/ClientExperience";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,12 @@ export const router = createBrowserRouter([
         path: "/add-package",
         element: <PrivateRoute>
            <AddPackage></AddPackage>
+        </PrivateRoute>
+      },
+       {
+        path: "/client-experience",
+        element: <PrivateRoute>
+           <ClientExperience></ClientExperience>
         </PrivateRoute>
       },
       {
