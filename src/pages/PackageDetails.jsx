@@ -12,7 +12,7 @@ console.log('package details', details)
 const {_id, tour_name, image, duration, departure_location, destination, price, departure_date, contact_no, package_details, guide_email, guide_name, guide_photo, booking_count} = details
 
     return (
-      <div className="card bg-base-100 w-11/12 md:w-200 lg:w-250 mx-auto shadow-md shadow-amber-100 my-4">
+      <div className="card bg-base-300 w-11/12 md:w-200 lg:w-250 mx-auto shadow-md shadow-sky-100 mt-20 mb-2">
         <figure>
           <img
           className='w-80 h-50 md:w-150 md:h-80 rounded-2xl pt-2'

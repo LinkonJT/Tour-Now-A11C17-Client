@@ -55,7 +55,8 @@ if (loading || isLoading) return <Spinner></Spinner>
 
     return (
 
-      <div className='w-11/12 mx-auto my-4'>
+      <div className='w-11/12 mx-auto mt-18'>
+        <h1 className='text-lg md:text-2xl font-bold text-center mb-2'>All Packages</h1>
  <form onSubmit={handleSearch} className="mb-6 flex gap-2 justify-center">
         <input
           type="text"
@@ -72,10 +73,10 @@ if (loading || isLoading) return <Spinner></Spinner>
    isLoading ? (
     <Spinner />
   ) : packages.length > 0 ? packages.map((pkg)=>(
-<div className="card bg-base-300 w-11/12 mx-auto shadow-md shadow-sky-200">
+<div className="card bg-base-300 w-11/12 mx-auto shadow-md shadow-sky-200 p-2">
   <figure>
     <img
-    className='w-80 h-50 md:w-100 md:h-65 rounded-2xl pt-2'
+    className='w-80 h-50 md:w-100 md:h-65 rounded-2xl'
       src={pkg.image || defaultTourImage}
       alt={pkg.tour_name} />
   </figure>
