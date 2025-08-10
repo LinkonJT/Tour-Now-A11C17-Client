@@ -48,7 +48,7 @@ if (loading) {
   return <Spinner></Spinner>
 }
     return (
-<div className='my-4 w-11/12 mx-auto'>
+<div className='mt-20 mb-4 w-11/12 mx-auto bg-gray-200 p-4'>
     <h1 className='text-center text-xl font-bold underline'>Update  Entries!</h1>
        <form onSubmit={handleUpdatePackage} className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     
@@ -104,11 +104,11 @@ if (loading) {
    
      <div>
        <label className="block mb-1">Guide Name</label>
-       <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full" />
+       <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full bg-gray-400" />
      </div>
      <div>
        <label className="block mb-1">Guide Email</label>
-       <input type="email" name="guide_email" value={user?.email || ''} readOnly className="input input-bordered w-full" />
+       <input type="email" name="guide_email" value={user?.email || ''} readOnly className="input input-bordered w-full bg-gray-400" />
      </div>
      
    

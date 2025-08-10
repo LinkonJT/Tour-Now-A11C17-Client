@@ -71,7 +71,7 @@ const handleConfirm = (id)=>{
     ) : (
       bookings.map((booking) => (
     
-        <div key={booking._id} className="card bg-base-100 mt-2 image-full w-90 md:w-96 mx-auto shadow-md shadow-amber-200">
+        <div key={booking._id} className="card bg-base-300 mt-2 image-full w-90 md:w-96 mx-auto shadow-md shadow-sky-200">
             
           <figure>
             <img

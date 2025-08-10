@@ -27,7 +27,7 @@ const FeaturedPackages = () => {
     <motion.h1 animate={{color: ['#68ff33', '#33caff', '#f3364e' ], transition: { duration: 10 , repeat: Infinity} }} className="text-center my-4 text-xl md:text-2xl font-medium underline">Featured Packages</motion.h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-11/12 mx-auto my-4">
       {packages.map((pkg) => (
-        <div className="card bg-base-100 w-11/12 mx-auto shadow-xl shadow-amber-100">
+        <div className="card bg-base-300 w-11/12 mx-auto shadow-md shadow-sky-200">
           <figure>
             <img
               className="w-80 h-50 md:w-100 md:h-65 rounded-2xl pt-2"

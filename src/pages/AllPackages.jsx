@@ -72,7 +72,7 @@ if (loading || isLoading) return <Spinner></Spinner>
    isLoading ? (
     <Spinner />
   ) : packages.length > 0 ? packages.map((pkg)=>(
-<div className="card bg-base-100 w-11/12 mx-auto shadow-md shadow-amber-100">
+<div className="card bg-base-300 w-11/12 mx-auto shadow-md shadow-sky-200">
   <figure>
     <img
     className='w-80 h-50 md:w-100 md:h-65 rounded-2xl pt-2'

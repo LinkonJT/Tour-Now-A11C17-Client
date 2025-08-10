@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
     return (
-         <div className="max-w-5xl mx-auto px-4 py-12">
+         <div className="max-w-5xl mx-auto px-4 py-12 mt-8">
       <h1 className="text-4xl font-bold text-center mb-6 text-primary">About Us</h1>
       <p className="text-lg text-center mb-12">
         Welcome to <span className="font-semibold text-primary">TourNow!</span> — where you design your own adventure.

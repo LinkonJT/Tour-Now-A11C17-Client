@@ -42,7 +42,7 @@ const result = Object.fromEntries(formData.entries())
   }
     
     return (
-<form onSubmit={handleAddPackage} className="grid grid-cols-1 md:grid-cols-2 gap-4 shadow-md p-4">
+<form onSubmit={handleAddPackage} className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4">
   <div>
     <label className="block mb-1">Tour Name</label>
     <input type="text" name="tour_name" placeholder="Tour Name" className="input input-bordered w-full" required />
@@ -95,11 +95,11 @@ const result = Object.fromEntries(formData.entries())
 
   <div>
     <label className="block mb-1">Guide Name</label>
-    <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full" />
+    <input type="text" value={user?.displayName || ''} readOnly className="input input-bordered w-full bg-gray-400" />
   </div>
   <div>
     <label className="block mb-1">Guide Email</label>
-    <input type="email" name="guide_email" value={user?.email || ''} readOnly className="input input-bordered w-full" />
+    <input type="email" name="guide_email" value={user?.email || ''} readOnly className="input input-bordered w-full bg-gray-400" />
   </div>
   
 

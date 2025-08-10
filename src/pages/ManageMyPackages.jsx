@@ -76,7 +76,7 @@ const handleDelete = (id) => {
   }
 
   return (
-    <div className="overflow-x-auto w-full md:w-11/12 mx-auto my-2">
+    <div className="overflow-x-auto w-full md:w-11/12 mx-auto mt-20 mb-4 bg-base-300">
       {myPackages.length === 0 ? (
         <p className="text-center">No packages created.</p>
       ) : (

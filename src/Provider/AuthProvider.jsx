@@ -20,6 +20,7 @@ const createUser=(email, password)=>{
 const signInUser=(email, password)=>{
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password)
+       .finally(() => setLoading(false)); 
 }
 
 
@@ -28,6 +29,7 @@ const signInUser=(email, password)=>{
 const signInWithGoogle=()=>{
     setLoading(true);
     return signInWithPopup(auth, provider)
+    .finally(() => setLoading(false))
 }
 
 /**Sign Out */
