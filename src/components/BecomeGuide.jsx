@@ -7,7 +7,7 @@ const BecomeGuide = () => {
     const {user} = useContext(AuthContext)
     return (
         <div className="w-11/12 mx-auto">
-                      <section className=" p-8 my-10 rounded-2xl bg-base-300 shadow-md shadow-sky-200">
+                      <section className=" p-8 my-10 rounded-2xl bg-base-300 shadow-md">
   <div className="flex flex-col md:flex-row items-center gap-6">
     
     <div>

@@ -15,7 +15,7 @@ const [isLoading, setIsLoading] = useState(true)
 
 useEffect(()=>{
     if(user?.email){
-        fetch(`https://tour-now-server.vercel.app/bookings?email=${user.email}`, {
+        fetch(`http://localhost:3000/bookings?email=${user.email}`, {
            headers: {
     "Content-Type": "application/json",
     "Authorization": `Bearer ${user.accessToken}`,
@@ -35,7 +35,7 @@ useEffect(()=>{
 },[user])
 
 const handleConfirm = (id)=>{
-    fetch (`https://tour-now-server.vercel.app/bookings/${id}`,{
+    fetch (`http://localhost:3000/bookings/${id}`,{
         method: "PATCH",
         headers: {
             'Content-type' : 'application/json',

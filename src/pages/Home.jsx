@@ -1,22 +1,25 @@
-import React from 'react';
-import Banner from '../pages/Banner';
-import FeaturedPackages from '../components/FeaturedPackages';
-import BecomeGuide from '../components/BecomeGuide';
-import FAQ from '../components/FAQ';
+import React from "react";
+import Banner from "../pages/Banner";
+import FeaturedPackages from "../components/FeaturedPackages";
+import BecomeGuide from "../components/BecomeGuide";
+import FAQ from "../components/FAQ";
+import Newsletter from "../components/Newsletter";
+import MostPopularPackages from "../components/MostPopularPackages";
 
 const Home = () => {
+  return (
+    <div>
+      <Banner></Banner>
+      <FeaturedPackages></FeaturedPackages>
 
-  
-    return (
-        <div>
-          <Banner></Banner>
-          <FeaturedPackages></FeaturedPackages>
+      <MostPopularPackages></MostPopularPackages>
 
-<BecomeGuide></BecomeGuide>
-<FAQ></FAQ>
+      <BecomeGuide></BecomeGuide>
+      <FAQ></FAQ>
 
-        </div>
-    );
+      <Newsletter></Newsletter>
+    </div>
+  );
 };
 
 export default Home;

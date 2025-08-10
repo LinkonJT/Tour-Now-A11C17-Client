@@ -45,7 +45,7 @@ const BookingForm = () => {
 
 
 /*****post to MongoDB */
-        fetch('https://tour-now-server.vercel.app/bookings',{
+        fetch('http://localhost:3000/bookings',{
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -71,7 +71,7 @@ const BookingForm = () => {
     if (!book) return <Spinner></Spinner>;
 
     return (
-         <div className="max-w-xl mx-auto my-8 p-6 rounded-lg shadow-md">
+         <div className="max-w-xl mx-auto mt-17 mb-2 bg-base-200 p-6 rounded-md  shadow-md shadow-sky-100">
       <h2 className="text-xl font-bold mb-4 text-center">Book Tour</h2>
       <form onSubmit={handleBookingForm}>
         <div className="mb-4">

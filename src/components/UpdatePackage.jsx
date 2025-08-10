@@ -25,7 +25,7 @@ updatedPackage.guide_name =  user?.displayName || 'Anonymous';
 updatedPackage.guide_email= user?.email || 'Not Provided';
 updatedPackage.guide_photo = user?.photoURL || '';
 
- fetch (`https://tour-now-server.vercel.app/update-package/${pkg._id}`,{
+ fetch (`http://localhost:3000/update-package/${pkg._id}`,{
   method: "PUT",
     headers: {
         'Content-Type': 'application/json'

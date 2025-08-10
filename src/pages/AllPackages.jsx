@@ -15,7 +15,7 @@ const AllPackages = () => {
 
        const fetchPackages = (search = '') => {
             setIsLoading(true);
-    fetch(`https://tour-now-server.vercel.app/all-packages?search=${search}`)
+    fetch(`http://localhost:3000/all-packages?search=${search}`)
       .then(res => res.json())
       .then(data => {
         setPackages(data);
@@ -25,7 +25,7 @@ const AllPackages = () => {
   };
 
 // useEffect(()=>{
-//     fetch('https://tour-now-server.vercel.app/all-packages')
+//     fetch('http://localhost:3000/all-packages')
 //      .then(res=>res.json())
 //      .then ((data)=>{
 //         setPackages(data)
