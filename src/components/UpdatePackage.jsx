@@ -48,7 +48,7 @@ if (loading) {
   return <Spinner></Spinner>
 }
     return (
-<div className='mt-20 mb-4 w-11/12 mx-auto bg-gray-200 p-4'>
+<div className='mt-20 mb-4 w-11/12 mx-auto bg-base-300 rounded-md p-4'>
     <h1 className='text-center text-xl font-bold underline'>Update  Entries!</h1>
        <form onSubmit={handleUpdatePackage} className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 ">
     
